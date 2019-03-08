@@ -13,11 +13,16 @@
 
 <body>
 
-<p id="log">Log:</p>
+<table id="log">
+  <tr>
+    <th id="title"><p>Log: </p></th>
+    <th><p id="text"></p></th>
+  </tr>
+</table>
 
   <table align = "center">
      <tr>
-        <td height="100" width="200px"><p align="center" class="user">User</p></td>
+        <td height="100" width="200px"><p align="center" id="username" class="user">User</p></td>
         <td align="center" width="100px"></td>
         <td width="200px"><p align="center" class="user">A.I.</p></td>
      </tr>
@@ -47,7 +52,8 @@
   </table>
 <p>&nbsp;</p>
 <table align="center">
-  <th><button class="reset" id="reset" onclick="reset()" align="center">Play Again</button></th>
+  <th class="space"><button class="setting" id="reset" onclick="reset()" align="center">Play Again</button></th>
+  <th class="space"><button class="setting" onclick="changeName()">Change Name</button></th>
 </table>
 
 </body>

@@ -2,6 +2,13 @@ let total = 0;
 let x = 0;
 let userscore = 0;
 let botscore = 0;
+let name = "User";
+
+function changeName() {
+  let username = document.getElementById("username");
+  name = prompt("What is your name?");
+  username.innerHTML = name;
+}
 
 function bot() {
   x = Math.floor((Math.random() * 10) + 1);
@@ -33,6 +40,10 @@ function b1() {
     }
   }
   p.innerHTML = "Total: " + total;
+
+  let text = document.getElementById("text");
+  let number = 1;
+  text.innerHTML = name + " added " + number + "<br/>" + "A.I added " + x;
 }
 
 function b2() {
@@ -60,6 +71,9 @@ function b2() {
     }
   }
   p.innerHTML = "Total: " + total;
+  let text = document.getElementById("text");
+  let number = 2;
+  text.innerHTML = name + " added " + number + "<br/>" + "A.I added " + x;
 }
 
 function b3() {
@@ -87,6 +101,9 @@ function b3() {
     }
   }
   p.innerHTML = "Total: " + total;
+  let text = document.getElementById("text");
+  let number = 3;
+  text.innerHTML = name + " added " + number + "<br/>" + "A.I added " + x;
 }
 
 function b4() {
@@ -114,6 +131,9 @@ function b4() {
     }
   }
   p.innerHTML = "Total: " + total;
+  let text = document.getElementById("text");
+  let number = 4;
+  text.innerHTML = name + " added " + number + "<br/>" + "A.I added " + x;
 }
 
 function b5() {
@@ -141,6 +161,9 @@ function b5() {
     }
   }
   p.innerHTML = "Total: " + total;
+  let text = document.getElementById("text");
+  let number = 5;
+  text.innerHTML = name + " added " + number + "<br/>" + "A.I added " + x;
 }
 
 function b6() {
@@ -168,6 +191,9 @@ function b6() {
     }
   }
   p.innerHTML = "Total: " + total;
+  let text = document.getElementById("text");
+  let number = 6;
+  text.innerHTML = name + " added " + number + "<br/>" + "A.I added " + x;
 }
 
 function b7() {
@@ -195,6 +221,9 @@ function b7() {
     }
   }
   p.innerHTML = "Total: " + total;
+  let text = document.getElementById("text");
+  let number = 7;
+  text.innerHTML = name + " added " + number + "<br/>" + "A.I added " + x;
 }
 
 function b8() {
@@ -222,6 +251,9 @@ function b8() {
     }
   }
   p.innerHTML = "Total: " + total;
+  let text = document.getElementById("text");
+  let number = 8;
+  text.innerHTML = name + " added " + number + "<br/>" + "A.I added " + x;
 }
 
 function b9() {
@@ -249,6 +281,9 @@ function b9() {
     }
   }
   p.innerHTML = "Total: " + total;
+  let text = document.getElementById("text");
+  let number = 9;
+  text.innerHTML = name + " added " + number + "<br/>" + "A.I added " + x;
 }
 
 function b10() {
@@ -276,10 +311,13 @@ function b10() {
     }
   }
   p.innerHTML = "Total: " + total;
+  let text = document.getElementById("text");
+  let number = 10;
+  text.innerHTML = name + " added " + number + "<br/>" + "A.I added " + x;
 }
 
 function reset() {
   let p = document.getElementById("display");
   total = 0;
-  p.innerHTML = "Total: " + total;  
+  p.innerHTML = "Total: " + total;
 }
