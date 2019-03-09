@@ -45,6 +45,9 @@ function bot() {
 }
 
 function botWin() {
+  if (total > 89) {
+    x = 100 - total;
+  }
   if (total >= 79 && total <= 88) {
     chance = Math.floor((Math.random() * 3) + 1);
     if (chance == 1 || chance == 2) {
