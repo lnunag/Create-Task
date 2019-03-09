@@ -7,8 +7,10 @@ let number = 0;
 let n = 0;
 let chance = 0;
 let numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+let saved = 0;
 
 function process() {
+  saved = total;
   editValues();
   number = numbers[n];
   if (total != 100) {
@@ -63,14 +65,14 @@ function botWin() {
 function end() {
   editValues();
   p.innerHTML = "Total: " + total;
-  text.innerHTML = name + " added " + number + "<br/>" + "A.I. added " + x;
+  text.innerHTML = "Total was " + saved + "<br/>" + name + " added " + number + "<br/>" + "A.I. added " + x;
 }
 
 function userVictory() {
   p.innerHTML = "Total: " + total;
   userscore++;
   uscore.innerHTML = userscore;
-  text.innerHTML = name + " added " + number + "<br/>" + name + " has won";
+  text.innerHTML = "Total was " + saved + "<br/>" + name + " added " + number + "<br/>" + name + " has won";
 }
 
 function aiVictory() {
@@ -78,7 +80,7 @@ function aiVictory() {
   p.innerHTML = "Total: " + total;
   botscore++;
   bscore.innerHTML = botscore;
-  text.innerHTML = name + " added " + number + "<br/>" + "A.I. added " + x + "<br/>" + "A.I. has won";
+  text.innerHTML = "Total was " + saved + "<br/>" + name + " added " + number + "<br/>" + "A.I. added " + x + "<br/>" + "A.I. has won";
 }
 
 function editValues() {
@@ -141,6 +143,7 @@ function b10() {
 function reset() {
   let p = document.getElementById("display");
   total = 0;
+  saved = 0;
   chance = 0;
   p.innerHTML = "Total: " + total;
 }

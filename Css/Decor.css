@@ -75,7 +75,7 @@ body {
   box-shadow: 0 9px #999;
   background-color: white;
   width: 350px;
-  height: 135px;
+  height: 165px;
   padding: 5px;
 }
 
@@ -127,7 +127,7 @@ body {
 #instructions {
   position: absolute;
   padding: 3px;
-  top: 175px;
+  top: 205px;
   height: 150px;
   width: 350px;
   border-radius: 5px;
