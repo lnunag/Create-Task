@@ -3,6 +3,34 @@ let x = 0;
 let userscore = 0;
 let botscore = 0;
 let name = "User";
+let number = 0;
+let n = 0;
+
+let numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+function process() {
+  editValues();
+  number = numbers[n];
+  if (total != 100) {
+    if ((total + numbers[n]) < 101) {
+      total += numbers[n];
+      x = bot();
+      if (total >= 100) {
+        userVictory();
+        return;
+      }
+      while (x + total > 100) {
+        x = bot();
+      }
+      total += x;
+      if (total == 100) {
+        aiVictory();
+        return;
+      }
+    }
+    end();
+  }
+}
 
 function changeName() {
   let username = document.getElementById("username");
@@ -10,310 +38,91 @@ function changeName() {
   username.innerHTML = name;
 }
 
+function botWin() {
+
+}
+
+function end() {
+  editValues();
+  p.innerHTML = "Total: " + total;
+  text.innerHTML = name + " added " + number + "<br/>" + "A.I. added " + x;
+}
+
+function userVictory() {
+  p.innerHTML = "Total: " + total;
+  userscore++;
+  uscore.innerHTML = userscore;
+  text.innerHTML = name + " added " + number + "<br/>" + name + " has won";
+}
+
+function aiVictory() {
+  editValues();
+  p.innerHTML = "Total: " + total;
+  botscore++;
+  bscore.innerHTML = botscore;
+  text.innerHTML = name + " added " + number + "<br/>" + "A.I. added " + x + "<br/>" + "A.I. has won";
+}
+
 function bot() {
   x = Math.floor((Math.random() * 10) + 1);
   return(x);
 }
 
-function b1() {
-  let p = document.getElementById("display");
-  let uscore = document.getElementById("user");
-  let bscore = document.getElementById("bot");
-  if ((total + 1) < 101) {
-    total += 1;
-    x = bot();
-    if (total >= 100) {
-      p.innerHTML = "Total: " + total;
-      userscore++;
-      uscore.innerHTML = userscore;
-      return;
-    }
-    while (x + total > 100) {
-      x = bot();
-    }
-    total += x;
-    if (total == 100) {
-      p.innerHTML = "Total: " + total;
-      botscore++;
-      bscore.innerHTML = botscore;
-      return;
-    }
-  }
-  p.innerHTML = "Total: " + total;
+function editValues() {
+  p = document.getElementById("display");
+  uscore = document.getElementById("user");
+  bscore = document.getElementById("bot");
+  text = document.getElementById("text");
+}
 
-  let text = document.getElementById("text");
-  let number = 1;
-  text.innerHTML = name + " added " + number + "<br/>" + "A.I added " + x;
+function b1() {
+  n = 0;
+  process();
 }
 
 function b2() {
-  let p = document.getElementById("display");
-  let uscore = document.getElementById("user");
-  let bscore = document.getElementById("bot");
-  if ((total + 2 < 101)) {
-    total += 2;
-    x = bot();
-    if (total >= 100) {
-      p.innerHTML = "Total: " + total;
-      userscore++;
-      uscore.innerHTML = userscore;
-      return;
-    }
-    while (x + total > 100) {
-      x = bot();
-    }
-    total += x;
-    if (total == 100) {
-      p.innerHTML = "Total: " + total;
-      botscore++;
-      bscore.innerHTML = botscore;
-      return;
-    }
-  }
-  p.innerHTML = "Total: " + total;
-  let text = document.getElementById("text");
-  let number = 2;
-  text.innerHTML = name + " added " + number + "<br/>" + "A.I added " + x;
+  n = 1;
+  process();
 }
 
 function b3() {
-  let p = document.getElementById("display");
-  let uscore = document.getElementById("user");
-  let bscore = document.getElementById("bot");
-  if ((total + 3 < 101)) {
-    total += 3;
-    x = bot();
-    if (total >= 100) {
-      p.innerHTML = "Total: " + total;
-      userscore++;
-      uscore.innerHTML = userscore;
-      return;
-    }
-    while (x + total > 100) {
-      x = bot();
-    }
-    total += x;
-    if (total == 100) {
-      p.innerHTML = "Total: " + total;
-      botscore++;
-      bscore.innerHTML = botscore;
-      return;
-    }
-  }
-  p.innerHTML = "Total: " + total;
-  let text = document.getElementById("text");
-  let number = 3;
-  text.innerHTML = name + " added " + number + "<br/>" + "A.I added " + x;
+  n = 2;
+  process();
 }
 
 function b4() {
-  let p = document.getElementById("display");
-  let uscore = document.getElementById("user");
-  let bscore = document.getElementById("bot");
-  if ((total + 4 < 101)) {
-    total += 4;
-    x = bot();
-    if (total >= 100) {
-      p.innerHTML = "Total: " + total;
-      userscore++;
-      uscore.innerHTML = userscore;
-      return;
-    }
-    while (x + total > 100) {
-      x = bot();
-    }
-    total += x;
-    if (total == 100) {
-      p.innerHTML = "Total: " + total;
-      botscore++;
-      bscore.innerHTML = botscore;
-      return;
-    }
-  }
-  p.innerHTML = "Total: " + total;
-  let text = document.getElementById("text");
-  let number = 4;
-  text.innerHTML = name + " added " + number + "<br/>" + "A.I added " + x;
+  n = 3;
+  process();
 }
 
 function b5() {
-  let p = document.getElementById("display");
-  let uscore = document.getElementById("user");
-  let bscore = document.getElementById("bot");
-  if ((total + 5 < 101)) {
-    total += 5;
-    x = bot();
-    if (total >= 100) {
-      p.innerHTML = "Total: " + total;
-      userscore++;
-      uscore.innerHTML = userscore;
-      return;
-    }
-    while (x + total > 100) {
-      x = bot();
-    }
-    total += x;
-    if (total == 100) {
-      p.innerHTML = "Total: " + total;
-      botscore++;
-      bscore.innerHTML = botscore;
-      return;
-    }
-  }
-  p.innerHTML = "Total: " + total;
-  let text = document.getElementById("text");
-  let number = 5;
-  text.innerHTML = name + " added " + number + "<br/>" + "A.I added " + x;
+  n = 4;
+  process();
 }
 
 function b6() {
-  let p = document.getElementById("display");
-  let uscore = document.getElementById("user");
-  let bscore = document.getElementById("bot");
-  if ((total + 6 < 101)) {
-    total += 6;
-    x = bot();
-    if (total >= 100) {
-      p.innerHTML = "Total: " + total;
-      userscore++;
-      uscore.innerHTML = userscore;
-      return;
-    }
-    while (x + total > 100) {
-      x = bot();
-    }
-    total += x;
-    if (total == 100) {
-      p.innerHTML = "Total: " + total;
-      botscore++;
-      bscore.innerHTML = botscore;
-      return;
-    }
-  }
-  p.innerHTML = "Total: " + total;
-  let text = document.getElementById("text");
-  let number = 6;
-  text.innerHTML = name + " added " + number + "<br/>" + "A.I added " + x;
+  n = 5;
+  process();
 }
 
 function b7() {
-  let p = document.getElementById("display");
-  let uscore = document.getElementById("user");
-  let bscore = document.getElementById("bot");
-  if ((total + 7 < 101)) {
-    total += 7;
-    x = bot();
-    if (total >= 100) {
-      p.innerHTML = "Total: " + total;
-      userscore++;
-      uscore.innerHTML = userscore;
-      return;
-    }
-    while (x + total > 100) {
-      x = bot();
-    }
-    total += x;
-    if (total == 100) {
-      p.innerHTML = "Total: " + total;
-      botscore++;
-      bscore.innerHTML = botscore;
-      return;
-    }
-  }
-  p.innerHTML = "Total: " + total;
-  let text = document.getElementById("text");
-  let number = 7;
-  text.innerHTML = name + " added " + number + "<br/>" + "A.I added " + x;
+  n = 6;
+  process();
 }
 
 function b8() {
-  let p = document.getElementById("display");
-  let uscore = document.getElementById("user");
-  let bscore = document.getElementById("bot");
-  if ((total + 8 < 101)) {
-    total += 8;
-    x = bot();
-    if (total >= 100) {
-      p.innerHTML = "Total: " + total;
-      userscore++;
-      uscore.innerHTML = userscore;
-      return;
-    }
-    while (x + total > 100) {
-      x = bot();
-    }
-    total += x;
-    if (total == 100) {
-      p.innerHTML = "Total: " + total;
-      botscore++;
-      bscore.innerHTML = botscore;
-      return;
-    }
-  }
-  p.innerHTML = "Total: " + total;
-  let text = document.getElementById("text");
-  let number = 8;
-  text.innerHTML = name + " added " + number + "<br/>" + "A.I added " + x;
+  n = 7;
+  process();
 }
 
 function b9() {
-  let p = document.getElementById("display");
-  let uscore = document.getElementById("user");
-  let bscore = document.getElementById("bot");
-  if ((total + 9 < 101)) {
-    total += 9;
-    x = bot();
-    if (total >= 100) {
-      p.innerHTML = "Total: " + total;
-      userscore++;
-      uscore.innerHTML = userscore;
-      return;
-    }
-    while (x + total > 100) {
-      x = bot();
-    }
-    total += x;
-    if (total == 100) {
-      p.innerHTML = "Total: " + total;
-      botscore++;
-      bscore.innerHTML = botscore;
-      return;
-    }
-  }
-  p.innerHTML = "Total: " + total;
-  let text = document.getElementById("text");
-  let number = 9;
-  text.innerHTML = name + " added " + number + "<br/>" + "A.I added " + x;
+  n = 8;
+  process();
 }
 
 function b10() {
-  let p = document.getElementById("display");
-  let uscore = document.getElementById("user");
-  let bscore = document.getElementById("bot");
-  if ((total + 10 < 101)) {
-    total += 10;
-    x = bot();
-    if (total >= 100) {
-      p.innerHTML = "Total: " + total;
-      userscore++;
-      uscore.innerHTML = userscore;
-      return;
-    }
-    while (x + total > 100) {
-      x = bot();
-    }
-    total += x;
-    if (total == 100) {
-      p.innerHTML = "Total: " + total;
-      botscore++;
-      bscore.innerHTML = botscore;
-      return;
-    }
-  }
-  p.innerHTML = "Total: " + total;
-  let text = document.getElementById("text");
-  let number = 10;
-  text.innerHTML = name + " added " + number + "<br/>" + "A.I added " + x;
+  n = 9;
+  process();
 }
 
 function reset() {

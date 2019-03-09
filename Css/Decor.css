@@ -75,7 +75,7 @@ body {
   box-shadow: 0 9px #999;
   background-color: white;
   width: 350px;
-  height: 25px;
+  height: 135px;
   padding: 5px;
 }
 
@@ -108,4 +108,18 @@ body {
   text-align: left;
   padding-left: 10px;
   font-size: 20px;
+}
+
+.versus {
+  text-align: center;
+  border: 2.5px black solid;
+  border-radius: 10px;
+  margin: auto;
+  width: 75px;
+  height: 30px;
+  font-size: 15px;
+  background-color: white;
+  box-shadow: 0 9px #999;
+  padding-top: 15px;
+  margin: 0px -10px;
 }
