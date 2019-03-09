@@ -123,3 +123,20 @@ body {
   padding-top: 15px;
   margin: 0px -10px;
 }
+
+#instructions {
+  position: absolute;
+  padding: 3px;
+  top: 175px;
+  height: 150px;
+  width: 350px;
+  border-radius: 5px;
+  border: 5px black solid;
+  box-shadow: 0 9px #999;
+  background-color: white;
+}
+
+#info {
+  padding-left: 20px;
+  font-size: 20px;
+}

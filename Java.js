@@ -144,3 +144,12 @@ function reset() {
   chance = 0;
   p.innerHTML = "Total: " + total;
 }
+
+function scoreReset() {
+  editValues();
+  botscore = 0;
+  userscore = 0;
+  bscore.innerHTML = botscore;
+  uscore.innerHTML = userscore;
+
+}
