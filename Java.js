@@ -5,8 +5,8 @@ let botscore = 0;
 let name = "User";
 let number = 0;
 let n = 0;
-
-let numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+let chance = 0;
+let numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
 function process() {
   editValues();
@@ -15,6 +15,7 @@ function process() {
     if ((total + numbers[n]) < 101) {
       total += numbers[n];
       x = bot();
+      botWin();
       if (total >= 100) {
         userVictory();
         return;
@@ -38,8 +39,22 @@ function changeName() {
   username.innerHTML = name;
 }
 
-function botWin() {
+function bot() {
+  x = Math.floor((Math.random() * 10) + 1);
+  return(x);
+}
 
+function botWin() {
+  if (total >= 79 && total <= 88) {
+    chance = Math.floor((Math.random() * 2) + 1);
+    if (chance == 1) {
+      x = 89 - total;
+    }
+    return;
+  }
+  if (chance == 1) {
+    x = 100 - total;
+  }
 }
 
 function end() {
@@ -61,11 +76,6 @@ function aiVictory() {
   botscore++;
   bscore.innerHTML = botscore;
   text.innerHTML = name + " added " + number + "<br/>" + "A.I. added " + x + "<br/>" + "A.I. has won";
-}
-
-function bot() {
-  x = Math.floor((Math.random() * 10) + 1);
-  return(x);
 }
 
 function editValues() {
@@ -128,5 +138,6 @@ function b10() {
 function reset() {
   let p = document.getElementById("display");
   total = 0;
+  chance = 0;
   p.innerHTML = "Total: " + total;
 }
