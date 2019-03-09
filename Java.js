@@ -46,13 +46,13 @@ function bot() {
 
 function botWin() {
   if (total >= 79 && total <= 88) {
-    chance = Math.floor((Math.random() * 2) + 1);
-    if (chance == 1) {
+    chance = Math.floor((Math.random() * 3) + 1);
+    if (chance == 1 || chance == 2) {
       x = 89 - total;
     }
     return;
   }
-  if (chance == 1) {
+  if (chance == 1 || chance == 2) {
     x = 100 - total;
   }
 }
