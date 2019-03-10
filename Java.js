@@ -41,6 +41,13 @@ function changeName() {
   username.innerHTML = name;
 }
 
+function editValues() {
+  p = document.getElementById("display");
+  uscore = document.getElementById("user");
+  bscore = document.getElementById("bot");
+  text = document.getElementById("text");
+}
+
 function bot() {
   x = Math.floor((Math.random() * 10) + 1);
   return(x);
@@ -62,12 +69,6 @@ function botWin() {
   }
 }
 
-function end() {
-  editValues();
-  p.innerHTML = "Total: " + total;
-  text.innerHTML = "Total was " + saved + "<br/>" + name + " added " + number + "<br/>" + "A.I. added " + x;
-}
-
 function userVictory() {
   p.innerHTML = "Total: " + total;
   userscore++;
@@ -83,11 +84,10 @@ function aiVictory() {
   text.innerHTML = "Total was " + saved + "<br/>" + name + " added " + number + "<br/>" + "A.I. added " + x + "<br/>" + "A.I. has won";
 }
 
-function editValues() {
-  p = document.getElementById("display");
-  uscore = document.getElementById("user");
-  bscore = document.getElementById("bot");
-  text = document.getElementById("text");
+function end() {
+  editValues();
+  p.innerHTML = "Total: " + total;
+  text.innerHTML = "Total was " + saved + "<br/>" + name + " added " + number + "<br/>" + "A.I. added " + x;
 }
 
 function b1() {
