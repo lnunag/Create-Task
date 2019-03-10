@@ -64,9 +64,6 @@ function botWin() {
     }
     return;
   }
-  if (chance == 1 || chance == 2) {
-    x = 100 - total;
-  }
 }
 
 function userVictory() {
