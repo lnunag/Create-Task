@@ -10,8 +10,8 @@ let numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 let saved = 0;
 
 function process() {
-  saved = total;
   editValues();
+  saved = total;
   number = numbers[n];
   if (total != 100) {
     if ((total + numbers[n]) < 101) {
@@ -154,5 +154,4 @@ function scoreReset() {
   userscore = 0;
   bscore.innerHTML = botscore;
   uscore.innerHTML = userscore;
-
 }
