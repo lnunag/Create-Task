@@ -8,6 +8,7 @@ let n = 0;
 let chance = 0;
 let numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 let saved = 0;
+let difficulty = 10;
 
 function process() {
   editValues();
@@ -58,8 +59,8 @@ function botWin() {
     x = 100 - total;
   }
   if (total >= 79 && total <= 88) {
-    chance = Math.floor((Math.random() * 2) + 1);
-    if (chance == 1 || chance == 2) {
+    chance = Math.floor((Math.random() * difficulty) + 1);
+    if (chance == 1) {
       x = 89 - total;
     }
     return;
@@ -151,4 +152,12 @@ function scoreReset() {
   userscore = 0;
   bscore.innerHTML = botscore;
   uscore.innerHTML = userscore;
+}
+
+function setHard() {
+  difficulty = 1;
+}
+
+function setEasy() {
+  difficulty = 10;
 }
