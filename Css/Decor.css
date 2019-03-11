@@ -13,7 +13,7 @@ button {
 }
 
 .number {
-  margin: 0px 10px;
+  margin: 20px 10px 0px 10px;
 }
 
 button:hover {
@@ -127,7 +127,7 @@ body {
 #instructions {
   position: absolute;
   padding: 3px;
-  top: 190px;
+  top: 200px;
   height: 150px;
   width: 350px;
   border-radius: 5px;
