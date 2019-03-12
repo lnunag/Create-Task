@@ -10,55 +10,35 @@ let numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 let saved = 0;
 let difficulty = 10;
 let impossible = false;
-let impossibleValues = [12, 23, 34, 45, 56, 67, 78, 89, 100];
-let turn = 0;
+let impossibleValues = [1, 12, 23, 34, 45, 56, 67, 78, 89, 100];
+let turn = 1;
+let botFirst = false;
+let confirmation = false;
 
 function process() {
-  if (!impossible) {
-    editValues();
-    saved = total;
-    number = numbers[n];
-    if (total != 100) {
-      if ((total + numbers[n]) < 101) {
-        total += numbers[n];
+  editValues();
+  saved = total;
+  number = numbers[n];
+  if (total != 100) {
+    if ((total + numbers[n]) < 101) {
+      total += numbers[n];
+      x = bot();
+      botWin();
+      x = (impossible) ? botImpossible() : x;
+      if (total >= 100) {
+        userVictory();
+        return;
+      }
+      while (x + total > 100) {
         x = bot();
-        botWin();
-        if (total >= 100) {
-          userVictory();
-          return;
-        }
-        while (x + total > 100) {
-          x = bot();
-        }
-        total += x;
-        if (total == 100) {
-          aiVictory();
-          return;
-        }
       }
-      end();
-    }
-  }
-  if (impossible) {
-    editValues();
-    saved = total;
-    number = numbers[n];
-    if (total != 100) {
-      if ((total + numbers[n]) < 101) {
-        total += numbers[n];
-        x = botImpossible();
-        if (total >= 100) {
-          userVictory();
-          return;
-        }
-        total += x;
-        if (total == 100) {
-          aiVictory();
-          return;
-        }
+      total += x;
+      if (total == 100) {
+        aiVictory();
+        return;
       }
-      end();
     }
+    end();
   }
 }
 
@@ -80,6 +60,8 @@ function editValues() {
   uscore = document.getElementById("user");
   bscore = document.getElementById("bot");
   text = document.getElementById("text");
+  impossibleText = document.getElementById("impossible");
+  disappear = document.getElementsByClassName("disappear");
 }
 
 function bot() {
@@ -105,14 +87,21 @@ function userVictory() {
   userscore++;
   uscore.innerHTML = userscore;
   text.innerHTML = "Total was " + saved + "<br/>" + name + " added " + number + "<br/>" + name + " has won";
+  for (let i = 0; i < disappear.length; i++) {
+    disappear[i].style.display = "block";
+  }
+  confirmation = false;
 }
 
 function aiVictory() {
-  editValues();
   p.innerHTML = "Total: " + total;
   botscore++;
   bscore.innerHTML = botscore;
   text.innerHTML = "Total was " + saved + "<br/>" + name + " added " + number + "<br/>" + "A.I. added " + x + "<br/>" + "A.I. has won";
+  for (let i = 0; i < disappear.length; i++) {
+    disappear[i].style.display = "block";
+  }
+  confirmation = false;
 }
 
 function end() {
@@ -122,53 +111,73 @@ function end() {
 }
 
 function b1() {
-  n = 0;
-  process();
+  if (confirmation) {
+    n = 0;
+    process();
+  }
 }
 
 function b2() {
-  n = 1;
-  process();
+  if (confirmation) {
+    n = 1;
+    process();
+  }
 }
 
 function b3() {
-  n = 2;
-  process();
+  if (confirmation) {
+    n = 2;
+    process();
+  }
 }
 
 function b4() {
-  n = 3;
-  process();
+  if (confirmation) {
+    n = 3;
+    process();
+  }
 }
 
 function b5() {
-  n = 4;
-  process();
+  if (confirmation) {
+    n = 4;
+    process();
+  }
 }
 
 function b6() {
-  n = 5;
-  process();
+  if (confirmation) {
+    n = 5;
+    process();
+  }
 }
 
 function b7() {
-  n = 6;
-  process();
+  if (confirmation) {
+    n = 6;
+    process();
+  }
 }
 
 function b8() {
-  n = 7;
-  process();
+  if (confirmation) {
+    n = 7;
+    process();
+  }
 }
 
 function b9() {
-  n = 8;
-  process();
+  if (confirmation) {
+    n = 8;
+    process();
+  }
 }
 
 function b10() {
-  n = 9;
-  process();
+  if (confirmation) {
+    n = 9;
+    process();
+  }
 }
 
 function reset() {
@@ -176,7 +185,11 @@ function reset() {
   total = 0;
   saved = 0;
   chance = 0;
-  turn = 0;
+  if (botFirst) {
+    turn = 0;
+  } else {
+    turn = 1;
+  }
   p.innerHTML = "Total: " + total;
 }
 
@@ -200,4 +213,37 @@ function setEasy() {
 
 function setToNearImpossible() {
   impossible = true;
+}
+
+function first() {
+  editValues();
+  impossibleText.innerHTML = "Set To Near Impossible";
+  turn = 1;
+  botFirst = false;
+}
+
+function second() {
+  editValues();
+  impossibleText.innerHTML = "Set To Impossible";
+  turn = 0;
+  botFirst = true;
+}
+
+function confirm() {
+  editValues();
+  reset();
+  for (let i = 0; i < disappear.length; i++) {
+    disappear[i].style.display = "none";
+  }
+  confirmation = true;
+  if (botFirst) {
+    editValues();
+    saved = total;
+    number = numbers[n];
+    x = bot();
+    x = (impossible) ? botImpossible() : x;
+    total += x;
+    text.innerHTML = "Total was " + saved + "<br/>" + "A.I. added " + x;
+    p.innerHTML = "Total: " + total;
+  }
 }
