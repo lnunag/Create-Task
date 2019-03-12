@@ -9,31 +9,64 @@ let chance = 0;
 let numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 let saved = 0;
 let difficulty = 10;
+let impossible = false;
+let impossibleValues = [12, 23, 34, 45, 56, 67, 78, 89, 100];
+let turn = 0;
 
 function process() {
-  editValues();
-  saved = total;
-  number = numbers[n];
-  if (total != 100) {
-    if ((total + numbers[n]) < 101) {
-      total += numbers[n];
-      x = bot();
-      botWin();
-      if (total >= 100) {
-        userVictory();
-        return;
-      }
-      while (x + total > 100) {
+  if (!impossible) {
+    editValues();
+    saved = total;
+    number = numbers[n];
+    if (total != 100) {
+      if ((total + numbers[n]) < 101) {
+        total += numbers[n];
         x = bot();
+        botWin();
+        if (total >= 100) {
+          userVictory();
+          return;
+        }
+        while (x + total > 100) {
+          x = bot();
+        }
+        total += x;
+        if (total == 100) {
+          aiVictory();
+          return;
+        }
       }
-      total += x;
-      if (total == 100) {
-        aiVictory();
-        return;
-      }
+      end();
     }
-    end();
   }
+  if (impossible) {
+    editValues();
+    saved = total;
+    number = numbers[n];
+    if (total != 100) {
+      if ((total + numbers[n]) < 101) {
+        total += numbers[n];
+        x = botImpossible();
+        if (total >= 100) {
+          userVictory();
+          return;
+        }
+        total += x;
+        if (total == 100) {
+          aiVictory();
+          return;
+        }
+      }
+      end();
+    }
+  }
+}
+
+function botImpossible() {
+  x = (impossibleValues[turn] - total);
+  x = Math.min(x, 10);
+  turn++;
+  return x;
 }
 
 function changeName() {
@@ -150,14 +183,21 @@ function scoreReset() {
   editValues();
   botscore = 0;
   userscore = 0;
+  turn = 0;
   bscore.innerHTML = botscore;
   uscore.innerHTML = userscore;
 }
 
 function setHard() {
   difficulty = 1;
+  impossible = false;
 }
 
 function setEasy() {
   difficulty = 10;
+  impossible = false;
+}
+
+function setToNearImpossible() {
+  impossible = true;
 }
