@@ -176,6 +176,7 @@ function reset() {
   total = 0;
   saved = 0;
   chance = 0;
+  turn = 0;
   p.innerHTML = "Total: " + total;
 }
 
@@ -183,7 +184,6 @@ function scoreReset() {
   editValues();
   botscore = 0;
   userscore = 0;
-  turn = 0;
   bscore.innerHTML = botscore;
   uscore.innerHTML = userscore;
 }
