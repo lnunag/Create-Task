@@ -71,7 +71,7 @@ function botImpossible() {
 
 function changeName() {
   let username = document.getElementById("username");
-  name = prompt("What is your name?");
+  name = prompt("What are your initials?");
   username.innerHTML = name;
 }
 
