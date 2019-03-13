@@ -97,7 +97,7 @@ body {
   border: 5px black solid;
   border-radius: 5px;
   font-size: 30px;
-  text-align: left;
+  text-align: center;
   font-size: 25px;
   background-color: black;
   color: white;
@@ -146,5 +146,42 @@ body {
 }
 
 .second {
-  width: 312.5px;
+  width: 235px;
+}
+
+.third {
+  width: 297.5px;
+}
+
+#mode1 {
+  right: 0;
+  position: absolute;
+  padding: 3px;
+  height: 150px;
+  width: 350px;
+  border-radius: 5px;
+  border: 5px black solid;
+  box-shadow: 0 9px #999;
+  background-color: white;
+}
+
+#mode2 {
+  right: 0;
+  position: absolute;
+  padding: 3px;
+  top: 200px;
+  height: 150px;
+  width: 350px;
+  border-radius: 5px;
+  border: 5px black solid;
+  box-shadow: 0 9px #999;
+  background-color: white;
+}
+
+#diff {
+  font-size: 30px;
+}
+
+#turnOrder {
+  font-size: 30px;
 }

@@ -36,6 +36,21 @@
   </tr>
 </table>
 
+<table id="mode1">
+  <tr>
+    <th id="title"><p>Current Mode: </p></th>
+    <th><p id="diff">Easy</p></th>
+  </tr>
+</table>
+
+<table id="mode2">
+  <tr>
+    <th id="title"><p>Turn Order: </p></th>
+    <th><p id="turnOrder">User Is First</p></th>
+  </tr>
+</table>
+
+
   <table align = "center">
      <tr>
         <td height="100" width="200px"><p align="center" id="username" class="user">User</p></td>
@@ -75,14 +90,15 @@
   <th class="space"><button class="setting disappear" id="reset" onclick="reset()" align="center">Play Again</button></th>
   <th class="space"><button class="setting" onclick="changeName()">Change Name</button></th>
   <th class="space"><button class="setting" onclick="scoreReset()">Reset Scores</button></th>
-  <th class="space"><button class="setting disappear" onclick="setEasy()">Set To Easy</button></th>
-  <th class="space"><button class="setting disappear" onclick="setHard()">Set To Hard</button></th>
+  <th class="space"><button class="setting second disappear" onclick="first()">Set To Go First</button></th>
+  <th class="space"><button class="setting second disappear" onclick="second()">Set To Go Second</button></th>
+
 </table>
 
 <table align="center">
+  <th class="space"><button class="setting disappear third" onclick="setEasy()">Set To Easy</button></th>
+  <th class="space"><button class="setting disappear third" onclick="setHard()">Set To Hard</button></th>
   <th class="space"><button class="setting buttons2 disappear" id="impossible" onclick="setToNearImpossible()">Set To Near Impossible</button></th>
-  <th class="space"><button class="setting second disappear" onclick="first()">Set to Go First</button></th>
-  <th class="space"><button class="setting second disappear" onclick="second()">Set To Go Second</button></th>
   <th class="space"><button class="setting disappear" onclick="confirm()">Confirm</button></th>
 </table>
 

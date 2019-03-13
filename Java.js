@@ -50,9 +50,13 @@ function botImpossible() {
 }
 
 function changeName() {
+  editValues();
   let username = document.getElementById("username");
   name = prompt("What are your initials?");
   username.innerHTML = name;
+  if (!botFirst) {
+    turnOrder.innerHTML = name + " is First";
+  }
 }
 
 function editValues() {
@@ -62,6 +66,8 @@ function editValues() {
   text = document.getElementById("text");
   impossibleText = document.getElementById("impossible");
   disappear = document.getElementsByClassName("disappear");
+  diff = document.getElementById("diff");
+  turnOrder = document.getElementById("turnOrder");
 }
 
 function bot() {
@@ -181,16 +187,7 @@ function b10() {
 }
 
 function reset() {
-  let p = document.getElementById("display");
-  total = 0;
-  saved = 0;
-  chance = 0;
-  if (botFirst) {
-    turn = 0;
-  } else {
-    turn = 1;
-  }
-  p.innerHTML = "Total: " + total;
+  confirm();
 }
 
 function scoreReset() {
@@ -202,17 +199,27 @@ function scoreReset() {
 }
 
 function setHard() {
+  editValues();
   difficulty = 1;
   impossible = false;
+  diff.innerHTML = "Hard";
 }
 
 function setEasy() {
+  editValues();
   difficulty = 10;
   impossible = false;
+  diff.innerHTML = "Easy";
 }
 
 function setToNearImpossible() {
+  editValues();
   impossible = true;
+  if (botFirst) {
+    diff.innerHTML = "Impossible";
+  } else {
+    diff.innerHTML = "Near Impossible";
+  }
 }
 
 function first() {
@@ -220,6 +227,10 @@ function first() {
   impossibleText.innerHTML = "Set To Near Impossible";
   turn = 1;
   botFirst = false;
+  turnOrder.innerHTML = name + " is First";
+  if (impossible) {
+    diff.innerHTML = "Near Impossible";
+  }
 }
 
 function second() {
@@ -227,11 +238,24 @@ function second() {
   impossibleText.innerHTML = "Set To Impossible";
   turn = 0;
   botFirst = true;
+  turnOrder.innerHTML = "A.I. is First";
+  if (impossible) {
+    diff.innerHTML = "Impossible";
+  }
 }
 
 function confirm() {
   editValues();
-  reset();
+  let p = document.getElementById("display");
+  total = 0;
+  saved = 0;
+  chance = 0;
+  if (botFirst) {
+    turn = 0;
+  } else {
+    turn = 1;
+  }
+  p.innerHTML = "Total: " + total;
   for (let i = 0; i < disappear.length; i++) {
     disappear[i].style.display = "none";
   }
